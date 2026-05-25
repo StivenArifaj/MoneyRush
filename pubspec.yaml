@@ -1,0 +1,60 @@
+name: moneyrush
+description: "MoneyRush — Gamified financial literacy for teenagers."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Game engine
+  flame: ^1.26.0
+
+  # Backend
+  supabase_flutter: ^2.9.0
+
+  # Navigation
+  go_router: ^14.8.1
+
+  # HTTP (Gemini API calls)
+  http: ^1.4.0
+
+  # Local storage
+  shared_preferences: ^2.5.3
+
+  # Audio
+  just_audio: ^0.10.4
+
+  # Charts (mini-games)
+  fl_chart: ^0.71.0
+
+  # UI animations
+  flutter_animate: ^4.5.2
+
+  # State management
+  provider: ^6.1.4
+
+  # JSON serialization
+  json_annotation: ^4.9.0
+
+  # Error tracking
+  sentry_flutter: ^8.14.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  json_serializable: ^6.9.5
+  build_runner: ^2.4.15
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/
