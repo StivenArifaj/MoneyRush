@@ -136,7 +136,7 @@ class _SplashScreenState extends State<SplashScreen>
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                     ),
-                    child: const Text('Retry', style: AppTextStyles.button),
+                    child: Text('Retry', style: AppTextStyles.button),
                   ),
                 ],
               ],

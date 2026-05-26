@@ -44,6 +44,21 @@ dependencies:
   # Error tracking
   sentry_flutter: ^8.14.0
 
+  # Fonts — Nunito (primary) + Sora (display)
+  google_fonts: ^6.2.1
+
+  # Complex JSON animations (celebrations, mascot)
+  lottie: ^3.1.2
+
+  # Loading skeleton screens
+  shimmer: ^3.0.0
+
+  # Confetti on milestone completion
+  confetti: ^0.7.0
+
+  # Duolingo-style curved bottom navigation
+  curved_navigation_bar: ^1.0.3
+
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
@@ -58,3 +73,5 @@ flutter:
 
   assets:
     - assets/data/
+    - assets/audio/sfx/
+    - assets/audio/music/

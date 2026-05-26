@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/constants/app_colors.dart';
+import 'core/constants/app_theme.dart';
 import 'providers/player_provider.dart';
 import 'screens/splash/splash_screen.dart';
 import 'screens/auth/login_screen.dart';
@@ -38,7 +40,6 @@ final _router = GoRouter(
       path: '/home',
       builder: (context, state) => const HomeScreen(),
     ),
-    // Placeholders for future stages
     GoRoute(
       path: '/quiz',
       builder: (context, state) =>
@@ -59,17 +60,62 @@ class MoneyRushApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'MoneyRush',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: AppColors.background,
-          colorScheme: ColorScheme.dark(
-            primary: AppColors.primary,
-            secondary: AppColors.accent,
-            surface: AppColors.surface,
-          ),
-          useMaterial3: true,
-        ),
+        theme: _buildTheme(),
         routerConfig: _router,
       ),
+    );
+  }
+
+  ThemeData _buildTheme() {
+    return ThemeData(
+      brightness: Brightness.dark,
+      scaffoldBackgroundColor: AppColors.background,
+      primaryColor: AppColors.primary,
+      colorScheme: const ColorScheme.dark(
+        primary: AppColors.primary,
+        secondary: AppColors.accent,
+        surface: AppColors.surface,
+        error: AppColors.danger,
+      ),
+      // Nunito as the default font for all Material widgets
+      textTheme: GoogleFonts.nunitoTextTheme(ThemeData.dark().textTheme),
+      cardTheme: const CardThemeData(
+        color: AppColors.surface,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: AppRadius.lg),
+      ),
+      dividerTheme: const DividerThemeData(color: AppColors.surfaceBorder),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.surface,
+        border: OutlineInputBorder(
+          borderRadius: AppRadius.md,
+          borderSide: const BorderSide(color: AppColors.surfaceBorder),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: AppRadius.md,
+          borderSide: const BorderSide(color: AppColors.surfaceBorder),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: AppRadius.md,
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: AppRadius.md,
+          borderSide: const BorderSide(color: AppColors.danger),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: AppRadius.md,
+          borderSide: const BorderSide(color: AppColors.danger, width: 2),
+        ),
+        labelStyle: const TextStyle(color: AppColors.textMuted),
+        floatingLabelStyle: const TextStyle(color: AppColors.primary),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      useMaterial3: true,
     );
   }
 }
@@ -82,10 +128,7 @@ class _PlaceholderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          label,
-          style: const TextStyle(color: Colors.white, fontSize: 18),
-        ),
+        child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 18)),
       ),
     );
   }

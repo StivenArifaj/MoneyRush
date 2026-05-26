@@ -1,57 +1,105 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
+// All text styles are static getters (not const) because GoogleFonts
+// returns runtime-constructed TextStyle objects.
 class AppTextStyles {
-  static const TextStyle heading1 = TextStyle(
-    fontSize: 28,
-    fontWeight: FontWeight.w800,
-    color: AppColors.textPrimary,
-    letterSpacing: -0.5,
-  );
+  // ── Display (Sora — large game moments) ────────────────────────────────────
 
-  static const TextStyle heading2 = TextStyle(
-    fontSize: 22,
-    fontWeight: FontWeight.w700,
-    color: AppColors.textPrimary,
-  );
+  static TextStyle get displayHero => GoogleFonts.sora(
+        fontSize: 40,
+        fontWeight: FontWeight.w800,
+        color: AppColors.textPrimary,
+        letterSpacing: -1.0,
+        height: 1.1,
+      );
 
-  static const TextStyle heading3 = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textPrimary,
-  );
+  static TextStyle get displayTitle => GoogleFonts.sora(
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+        color: AppColors.textPrimary,
+        letterSpacing: -0.5,
+      );
 
-  static const TextStyle body = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textPrimary,
-    height: 1.5,
-  );
+  // ── Headings (Nunito) ───────────────────────────────────────────────────────
 
-  static const TextStyle bodySecondary = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textSecondary,
-    height: 1.5,
-  );
+  static TextStyle get h1 => GoogleFonts.nunito(
+        fontSize: 24,
+        fontWeight: FontWeight.w800,
+        color: AppColors.textPrimary,
+      );
 
-  static const TextStyle caption = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textMuted,
-  );
+  static TextStyle get h2 => GoogleFonts.nunito(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        color: AppColors.textPrimary,
+      );
 
-  static const TextStyle button = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-    color: AppColors.textPrimary,
-    letterSpacing: 0.3,
-  );
+  static TextStyle get h3 => GoogleFonts.nunito(
+        fontSize: 17,
+        fontWeight: FontWeight.w700,
+        color: AppColors.textPrimary,
+      );
 
-  static const TextStyle money = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w800,
-    color: AppColors.primary,
-    fontFeatures: [FontFeature.tabularFigures()],
-  );
+  // ── Body (Nunito) ───────────────────────────────────────────────────────────
+
+  static TextStyle get bodyLarge => GoogleFonts.nunito(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: AppColors.textPrimary,
+        height: 1.5,
+      );
+
+  static TextStyle get body => GoogleFonts.nunito(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: AppColors.textSecondary,
+        height: 1.5,
+      );
+
+  static TextStyle get caption => GoogleFonts.nunito(
+        fontSize: 12,
+        fontWeight: FontWeight.w600,
+        color: AppColors.textMuted,
+        letterSpacing: 0.3,
+      );
+
+  // ── Special ─────────────────────────────────────────────────────────────────
+
+  static TextStyle get buttonLabel => GoogleFonts.nunito(
+        fontSize: 16,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 0.3,
+        color: AppColors.textOnGold,
+      );
+
+  static TextStyle get moneyDisplay => GoogleFonts.sora(
+        fontSize: 32,
+        fontWeight: FontWeight.w700,
+        color: AppColors.primary,
+        letterSpacing: -0.5,
+      );
+
+  // ── Backward-compatibility aliases (used by existing screens) ───────────────
+
+  static TextStyle get heading1 => displayTitle;
+  static TextStyle get heading2 => h1;
+  static TextStyle get heading3 => h2;
+
+  static TextStyle get bodySecondary => GoogleFonts.nunito(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: AppColors.textSecondary,
+        height: 1.5,
+      );
+
+  static TextStyle get button => GoogleFonts.nunito(
+        fontSize: 16,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 0.3,
+        color: AppColors.textPrimary,
+      );
+
+  static TextStyle get money => moneyDisplay;
 }

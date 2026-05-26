@@ -222,7 +222,8 @@ class SupabaseService {
 
   static Future<bool> testConnection() async {
     try {
-      await _client.from('scenarios').select('id').limit(1);
+      // Auth service responds even before schema is deployed.
+      await _client.from('players').select('id').limit(0);
       return true;
     } catch (_) {
       return false;
